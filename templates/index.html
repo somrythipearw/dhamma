@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Transcript Downloader</title>
+</head>
+<body>
+    <h1>YouTube Transcript Downloader</h1>
+    <form method="POST">
+        <label for="youtube_id">Enter YouTube Video ID:</label>
+        <input type="text" id="youtube_id" name="youtube_id" required>
+        <button type="submit">Get Transcript</button>
+    </form>
+
+    {% if success %}
+        <h2>Transcript with Timestamps:</h2>
+        <pre>{{ with_time }}</pre>
+        <h2>Transcript without Timestamps:</h2>
+        <pre>{{ without_time }}</pre>
+    {% elif error %}
+        <h2 style="color: red;">{{ error }}</h2>
+    {% endif %}
+</body>
+</html>
